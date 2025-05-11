@@ -1,0 +1,5 @@
+.DS_Store
+.memo
+build/
+dist/
+unofficial_twitter_client.egg-info/
