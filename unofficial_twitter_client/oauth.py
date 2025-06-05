@@ -31,3 +31,23 @@ def quote_tweet(text, screen_name, id):
     """引用リツイート"""
     text = f"{text} https://x.com/{screen_name}/status/{id}"
     return tweet_by_oauth(text) 
+
+def tweet_with_img(text, bin):
+    """画像付きツイートを投稿"""
+    files = {
+        "media": bin
+    }
+    upload_response = oauth1.post("https://upload.twitter.com/1.1/media/upload.json", files=files)
+    media_id = upload_response.json()["media_id_string"]
+    data = {
+        'text': text,
+        'media': {
+            'media_ids': [media_id]
+        }
+    }
+    tweet_response = oauth1.post(
+        "https://api.twitter.com/2/tweets",
+        json=data,
+        headers={"Content-Type": "application/json"}
+    )
+    return tweet_response.json()

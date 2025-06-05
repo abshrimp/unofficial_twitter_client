@@ -40,7 +40,7 @@ export X_TWITTER_CLIENT_DEVICEID="your_deviceid"
 ⚠️ **注意**: 以下のコードは例示用です。実際の使用時は適切なエラーハンドリングとレート制限の考慮が必要です。
 
 ```python
-from unofficial_twitter_client.api import android, web, oauth
+from unofficial_twitter_client import android, web, oauth
 
 # Android APIの使用例
 response = android.create_tweet("Hello, World!", oauth_token, token_secret)

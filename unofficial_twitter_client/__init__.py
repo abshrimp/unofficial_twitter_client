@@ -9,4 +9,4 @@ from .config import (
     x_client_uuid, x_twitter_client_deviceid
 )
 
-__version__ = "0.1.0" 
+__version__ = "0.2.0" 
